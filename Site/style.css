@@ -1,0 +1,14 @@
+bestfilm{
+    color: blue;
+}
+
+#topSix{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes de largeur égale */
+    grid-gap: 1px; /* Espacement entre les éléments */
+    text-align: center;
+}
+
+h1{
+
+}

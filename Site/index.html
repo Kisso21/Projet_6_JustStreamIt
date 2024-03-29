@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>JustStreamIt</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>JUST STREAM IT Vidéo à la demande</h1>
+    </header>
+    <main>
+            <div>
+                <h2>Meilleur film</h2>
+                <div id="bestFilm">
+                </div>
+            </div>
+            <div>
+                <h2>Films les mieux notés</h2>
+                <div id ="topSix">
+
+                </div>
+            </div>
+            <div>
+                <h2>Catégorie 1</h2>
+            </div>
+            <div>
+                <h2>Catégorie 2</h2>
+            </div>
+            <div>
+                <h2>Choix de catégorie</h2>
+            </div>
+    </main>
+    <script>
+        fetch('http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=')
+            .then(response => response.json())
+            .then(data => {
+                const firstFilm = data.results[0];
+                const firstFilmDiv = document.getElementById('bestFilm');
+                const filmTopSix = document.getElementById('topSix');
+                firstFilmDiv.innerHTML = `
+                    <h3>${firstFilm.title} (${firstFilm.year})</h3>
+                    <img src="${firstFilm.image_url}" alt="${firstFilm.title}">
+                `;
+                for (let i = 1; i < 5; i++) {
+                    const film = data.results[i];
+                    const filmDiv = document.createElement('div');
+                    filmDiv.innerHTML = `
+                        <img src="${film.image_url}" alt="${film.title}">
+                    `;
+                    filmTopSix.appendChild(filmDiv);
+                }
+                fetch(data.next)
+                    .then(response => response.json())
+                    .then(dataSecond => {
+                      const firstFilms = dataSecond.results;
+                      for (let i = 0; i < 2; i++) {
+                        const film = dataSecond.results[i];
+                        const filmDiv = document.createElement('div');
+                        filmDiv.innerHTML = `
+                            <img src="${film.image_url}" alt="${film.title}">
+                        `;
+                        filmTopSix.appendChild(filmDiv);
+                      }
+                    })
+            })
+            .catch(error => {
+                console.error('Une erreur s\'est produite lors de la récupération des données :', error);
+            });
+    </script>
+</body>
+</html>
