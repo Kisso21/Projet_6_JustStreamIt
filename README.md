@@ -23,15 +23,15 @@ cd project_folder
 
 Ouvrez le terminal et naviguez jusqu'au dossier du projet
 
-git clone https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR.git
-cd OCMovies-API-EN-FR
-python -m venv venv
-. venv/bin/activate (sur MacOS/Linux) venv\Scripts\activate (sur Windows)
-pip install -r requirements.txt
-python manage.py create_db
-python3 manage.py runserver
+git clone https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR.git  
+cd OCMovies-API-EN-FR  
+python -m venv venv  
+. venv/bin/activate (sur MacOS/Linux) venv\Scripts\activate (sur Windows)  
+pip install -r requirements.txt  
+python manage.py create_db  
+python3 manage.py runserver  
 
-Accédez à l'API avec http://localhost:8000/api/v1/titles/
+Accédez à l'API avec http://localhost:8000/api/v1/titles/  
 
 ### 3. Installation du Projet :
 
