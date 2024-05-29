@@ -16,8 +16,8 @@
 
 ### 1. Créer le Dossier du Projet
 
-mkdir project_folder
-cd project_folder
+mkdir project_folder  
+cd project_folder  
 
 ### 2. Installation de l'API :
 
