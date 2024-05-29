@@ -1,0 +1,214 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #6c7a89;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.best-movie {
+    margin-bottom: 40px;
+}
+
+#best-movie-info {
+    text-align: center;
+    padding:20px;
+}
+
+.movie-highlight {
+    display: flex;
+    align-items: center;
+    border: 2px solid #000;
+    padding: 10px;
+}
+
+.highlight-img {
+    max-width: 150px;
+    margin-right: 20px;
+}
+
+.details-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Colonnes de largeur flexible */
+    gap: 20px; /* Espacement entre les éléments */
+    justify-items: center; /* Centrer les éléments horizontalement dans la grille */
+    align-items: center; /* Centrer les éléments verticalement dans la grille */
+}
+
+.movie-item {
+    position: relative;
+    width: 100%; /* Pour s'adapter à la grille */
+    aspect-ratio: 1; /* Assure que les éléments sont des carrés */
+    overflow: hidden;
+    border: 2px solid #000;
+}
+
+.movie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image couvre complètement le conteneur carré */
+}
+
+.overlay {
+    position: absolute;
+    top: 50%; /* Positionner l'overlay au milieu de l'élément parent */
+    left: 50%; /* Positionner l'overlay au milieu de l'élément parent */
+    transform: translate(-50%, -50%); /* Déplacer l'overlay de moitié de sa largeur et de sa hauteur vers le haut et la gauche */
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex; /* Utiliser un layout flexbox */
+    flex-direction: column; /* Afficher les éléments en colonne */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
+    width: 100%;
+}
+
+.overlay .details-button {
+    margin-top: 10px;
+}
+
+.other-menu {
+    display: flex; /* Utiliser un layout flexbox */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
+}
+
+.other-menu h2 {
+    margin-right: 10px; /* Marge entre le titre et le sélecteur */
+}
+
+/* Styles pour la modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style pour la liste déroulante */
+#genre {
+}
+
+#genre option {
+    padding: 5px;
+}
+
+/* Responsive Styles */
+/* 6 films par ligne sur PC */
+@media (min-width: 1025px) {
+    .movie-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+        grid-template-rows: repeat(2, auto); /* 2 lignes */
+    }
+    .movie-item {
+        width: calc(60% - 20px); /* 3 films par ligne */
+    }
+}
+
+/* 4 films par ligne sur tablette */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+        grid-template-rows: repeat(2, auto); /* 2 lignes */
+    }
+    /* Cacher les deux derniers éléments sur tablette */
+    .movie-item:nth-last-child(-n+2) {
+        display: none;
+    }
+    .movie-item {
+        width: calc(80% - 20px); /* 2 films par ligne */
+    }
+}
+
+/* 2 films par ligne sur téléphone */
+@media (max-width: 600px) {
+    .movie-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 colonne */
+        grid-template-rows: repeat(2, auto); /* 2 lignes */
+    }
+    /* Cacher les deux premiers éléments sur téléphone */
+    .movie-item:nth-child(n+3) {
+        display: none;
+    }
+    .movie-item {
+        width: calc(90% - 20px); /* 2 films par ligne */
+    }
+    .movie-highlight {
+        flex-direction: column; /* Les éléments sont empilés verticalement */
+        text-align: center; /* Centrage du texte */
+    }
+
+    /* Ajustement des marges pour les éléments empilés */
+    .movie-highlight img {
+        margin-bottom: 10px; /* Espacement entre l'image et le titre */
+    }
+
+    .movie-highlight #best-movie-info {
+        margin-bottom: 10px; /* Espacement entre le titre et la description */
+    }
+
+    .movie-highlight .details-button {
+        margin-top: 10px; /* Espacement entre la description et le bouton */
+    }
+}

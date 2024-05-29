@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustStreamIt</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>JustStreamIt</h1>
+            <h2>Vidéos à la demande</h2>
+        </div>
+    </header>
+    <main>
+        <section class="best-movie">
+            <h2>Meilleur film</h2>
+            <div class="movie-highlight" id="best-movie">
+                <img>
+                <div id="best-movie-info">
+                    <h1></h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                    <button class="details-button">Détails</button>
+                </div>
+        </div>
+        </section>
+        <section class="mystery-movies">
+            <h2>Films les mieux notés</h2>
+            <div class="movie-grid" id="movie-grid">
+                <!-- Les éléments des films seront générés ici dynamiquement -->
+            </div>
+        </section>
+        <section class="comedy-movies">
+            <h2>Comédies</h2>
+            <div class="movie-grid" id="comedy-grid">
+                <!-- Les éléments des films seront générés ici dynamiquement -->
+            </div>
+        </section>
+        <section class="sci-fi-movies">
+            <h2>Science Fiction</h2>
+            <div class="movie-grid" id="sci-fi-grid">
+                <!-- Les éléments des films seront générés ici dynamiquement -->
+            </div>
+        </section>
+        <section class="other-movies">
+            <div class ="other-menu">
+            <h2>Choisissez un genre :</h2>
+            <select id="genre">
+                <!-- Options seront ajoutées ici par JavaScript -->
+            </select>
+            </div>
+            <div class="movie-grid" id="other-grid">
+                <!-- Les films du genre sélectionné seront affichés ici -->
+            </div>
+        </section>
+    </main>
+    <script src = "js/scripts.js"></script>
+</body>
+</html>
