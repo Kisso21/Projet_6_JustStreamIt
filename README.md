@@ -38,7 +38,7 @@ Accédez à l'API avec http://localhost:8000/api/v1/titles/
 
 Ouvrez le terminal et naviguez jusqu'au dossier du projet
 
-git clone https://github.com/Kisso21/Projet_6_JustStreamIt.git
-cd JustStreamIt
+git clone https://github.com/Kisso21/Projet_6_JustStreamIt.git  
+cd Projet_6_JustStreamIt/JustStreamIt  
 
 Ouvrez le fichier index.html pour afficher le site web
